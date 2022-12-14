@@ -69,6 +69,7 @@ const changePcontent = pCambiato => {
 
 const changeUrls = () => {
     for (let i = 0; i < document.querySelectorAll("div>a").length; i++) {
+        // posso uasre anche dentro not:(footer a) o not lastchild
         const link = document.querySelectorAll("div>a")[i]
 
         link.href = "https://www.google.com"
@@ -100,6 +101,8 @@ const addToTheSecond = (addli) => {
 
 
 addToTheSecond("this is a new li added")
+
+
 /* ESERCIZIO 6
    Scrivi una funzione che aggiunga un secondo paragrafo al primo div
 */
@@ -108,9 +111,16 @@ addToTheSecond("this is a new li added")
 
 
 // }
-const addParagraph = () => {
+const addParagraph = (addP) => {
+    const nuovoP = document.createElement("p")
+    nuovoP.innerText = addP
+
+    const primoDiv = document.querySelector("body>div")
+    primoDiv.appendChild(nuovoP)
 
 }
+addParagraph("ok")
+
 
 
 /* ESERCIZIO 7
@@ -131,19 +141,39 @@ const hideFirstUl = () => {
    Scrivi una funzione che renda verde il background di ogni lista non ordinata
   */
 
-const paintItGreen = function () {
+// const paintItGreen = function () {
+
+
+// }
+const paintItGreen = () => {
+
+    for (let i = 0; i < document.getElementsByTagName("ul").length; i++) {
+        const listaU = document.getElementsByTagName("ul")[i]
+        listaU.style.background = "green"
+
+    }
+
 
 
 }
+
 
 /* ESERCIZIO 9
    Scrivi una funzione che rimuova l'ultima lettera dall'h1 ogni volta che l'utente lo clicca
   */
 
-const makeItClickable = function () {
+// const makeItClickable = function () {
 
 
+// }
+const makeItClickable = () => {
+
+    let h1 = document.querySelector("div>h1").textContent
+    h1 = h1.substring(0, h1.length - 1)
 }
+
+
+
 
 /* ESERCIZIO 10
    Crea una funzione che, al click sul footer, riveli l'URL del link interno come contenuto di un alert()
